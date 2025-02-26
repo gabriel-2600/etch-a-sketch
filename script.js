@@ -1,7 +1,6 @@
 const container = document.querySelector("#container");
 
-function gridGenerator(grids) {
-  console.log(grids);
+function gridGenerator(grids = 16) {
   for (let i = 0; i < grids; i++) {
     const rowDiv = document.createElement("div");
     rowDiv.classList.add("row-div");
@@ -15,8 +14,8 @@ function gridGenerator(grids) {
   }
 }
 
-gridGenerator((grids = 16));
-draw();
+gridGenerator();
+hover();
 
 function promptUser() {
   let numOfGrids = prompt("Input numbers 1-100 only");
@@ -38,7 +37,7 @@ function promptUser() {
     convertNumOfGrids = Number(numOfGrids);
 
     gridGenerator(convertNumOfGrids);
-    draw();
+    hover();
   }
 }
 
@@ -47,7 +46,7 @@ changeGridBtn.addEventListener("click", () => {
   promptUser();
 });
 
-function draw() {
+function hover() {
   const columnDivSelect = document.querySelectorAll(".column-div");
   columnDivSelect.forEach((div) => {
     div.addEventListener("mouseover", () => {
