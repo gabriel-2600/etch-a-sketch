@@ -12,10 +12,21 @@ function gridGenerator(grids = 16) {
       rowDiv.appendChild(columnDiv);
     }
   }
-}
 
-gridGenerator();
-hover();
+  const columnDivSelect = document.querySelectorAll(".column-div");
+
+  columnDivSelect.forEach((div) => {
+    div.addEventListener("mouseover", () => {
+      if (eraserBtn.textContent === "On") {
+        div.style.backgroundColor = "";
+      } else if (randomizeColorBtn.textContent === "Black") {
+        div.style.backgroundColor = "black";
+      } else {
+        div.style.backgroundColor = randomizeColor();
+      }
+    });
+  });
+}
 
 function promptUser() {
   let numOfGrids = prompt("Input numbers 1-100 only");
@@ -37,7 +48,6 @@ function promptUser() {
     convertNumOfGrids = Number(numOfGrids);
 
     gridGenerator(convertNumOfGrids);
-    hover();
   }
 }
 
@@ -74,17 +84,4 @@ eraserBtn.addEventListener("click", () => {
   }
 });
 
-function hover() {
-  const columnDivSelect = document.querySelectorAll(".column-div");
-  columnDivSelect.forEach((div) => {
-    div.addEventListener("mouseover", () => {
-      if (eraserBtn.textContent === "On") {
-        div.style.backgroundColor = "";
-      } else if (randomizeColorBtn.textContent === "Black") {
-        div.style.backgroundColor = "black";
-      } else {
-        div.style.backgroundColor = randomizeColor();
-      }
-    });
-  });
-}
+gridGenerator();
