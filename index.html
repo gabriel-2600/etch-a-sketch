@@ -11,17 +11,28 @@
   <body>
     <h1>Etch-A-Sketch</h1>
 
-    <button class="change-grid-button">Change Grid Size</button>
+    <div id="main-section">
+      <div class="buttons-container">
+        <button class="change-grid-button">Change Grid Size</button>
 
-    <p>Toggle Randomize Color:</p>
-    <button class="randomize-colors-btn">Black</button>
+        <div class="btn randomize-container">
+          <p>Color:</p>
+          <button class="randomize-colors-btn">Black</button>
+        </div>
 
-    <p>Toggle Eraser:</p>
-    <button class="eraser-btn">Off</button>
+        <div class="btn opacity-container">
+          <p>Opacity Mode:</p>
+          <button class="opacity-btn">Off</button>
+        </div>
 
-    <!-- <button class="grid-lines-btn">Show Grid Lines</button> -->
+        <div class="btn eraser-container">
+          <p>Eraser:</p>
+          <button class="eraser-btn">Off</button>
+        </div>
+      </div>
 
-    <div id="container"></div>
+      <div id="container"></div>
+    </div>
 
     <script src="script.js"></script>
   </body>

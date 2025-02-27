@@ -1,6 +1,19 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-sizing: border-box;
+  /* margin: ; */
+}
+
 h1 {
   text-align: center;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#main-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
 }
 
 #container {
@@ -21,4 +34,15 @@ h1 {
   border: 1px solid #b9b9b923;
   width: 100%;
   height: auto;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  width: 600px;
+}
+
+.btn {
+  display: flex;
+  gap: 5px;
 }
