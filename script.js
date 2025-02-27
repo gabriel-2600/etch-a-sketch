@@ -46,12 +46,45 @@ changeGridBtn.addEventListener("click", () => {
   promptUser();
 });
 
+function randomizeColor() {
+  let randomColor = Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, "0");
+
+  let hexColor = `#${randomColor}`;
+
+  return hexColor;
+}
+
+const randomizeColorBtn = document.querySelector(".randomize-colors-btn");
+randomizeColorBtn.addEventListener("click", () => {
+  if (randomizeColorBtn.textContent === "Black") {
+    randomizeColorBtn.textContent = "Random";
+  } else {
+    randomizeColorBtn.textContent = "Black";
+  }
+});
+
+const eraserBtn = document.querySelector(".eraser-btn");
+eraserBtn.addEventListener("click", () => {
+  if (eraserBtn.textContent === "Off") {
+    eraserBtn.textContent = "On";
+  } else {
+    eraserBtn.textContent = "Off";
+  }
+});
+
 function hover() {
   const columnDivSelect = document.querySelectorAll(".column-div");
   columnDivSelect.forEach((div) => {
     div.addEventListener("mouseover", () => {
-      console.log("being hovered fr");
-      div.style.backgroundColor = "black";
+      if (eraserBtn.textContent === "On") {
+        div.style.backgroundColor = "";
+      } else if (randomizeColorBtn.textContent === "Black") {
+        div.style.backgroundColor = "black";
+      } else {
+        div.style.backgroundColor = randomizeColor();
+      }
     });
   });
 }
